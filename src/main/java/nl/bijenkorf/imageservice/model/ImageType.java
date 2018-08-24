@@ -9,14 +9,16 @@ public class ImageType {
     private String fillColor;
     private PredefinedTypes predefinedType;
 
-    public ImageType(int width, int height, int quality, ScaleTypes scaleType, ImageTypes typeReturned, String fillColor, PredefinedTypes predefinedType) {
+    public ImageType(int width, int height, int quality, ScaleTypes scaleType, String fillColor, PredefinedTypes predefinedType) {
         this.width = width;
         this.height = height;
         this.quality = quality;
         this.scaleType = scaleType;
-        this.typeReturned = typeReturned;
         this.fillColor = fillColor;
         this.predefinedType = predefinedType;
+
+        //Setting a default just in case someone forgets to set it
+        this.typeReturned = ImageTypes.JPG;
     }
 
     public int getWidth() {
@@ -45,5 +47,9 @@ public class ImageType {
 
     public PredefinedTypes getPredefinedType() {
         return predefinedType;
+    }
+
+    public void setTypeReturned(ImageTypes typeReturned) {
+        this.typeReturned = typeReturned;
     }
 }
