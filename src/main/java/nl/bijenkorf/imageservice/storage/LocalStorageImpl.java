@@ -43,4 +43,9 @@ public class LocalStorageImpl implements Storage{
     public BufferedImage getImage(ImageType imageType, String filename) throws IOException {
         return ImageIO.read(new File(storageFolder + "/" + PathHelper.createRelativePath(imageType, filename)));
     }
+
+    @Override
+    public void removeImage(ImageType imageType, String originalName) throws IOException {
+        //TODO: Implement image removal
+    }
 }

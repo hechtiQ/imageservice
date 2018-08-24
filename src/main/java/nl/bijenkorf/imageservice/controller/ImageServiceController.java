@@ -78,6 +78,7 @@ public class ImageServiceController {
     @RequestMapping(value = "/image/flush/{predefinedType}/")
     public String flushImage(@PathVariable String predefinedType, @RequestParam("reference") String relativePath)
     {
+        //TODO: Implement image removal
         return "";
     }
 
