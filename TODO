@@ -1,0 +1,6 @@
+Things still to do:
+- implement image removal
+- implement logging abstraction
+- correctly log issues according to the given document
+- Add environment configurations
+- clean up ImageServiceController, move code to improve readability
