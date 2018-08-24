@@ -23,6 +23,9 @@ public class ImageIOOptimizerImpl implements ImageOptimizer {
         }
     }
 
+    /**
+     * Returns a scaled image where aspect ratio is honored and a fill will be done.
+     */
     private BufferedImage scale(BufferedImage originalImage, ImageType imageType) {
 
         int newWidth = originalImage.getWidth();
@@ -44,6 +47,9 @@ public class ImageIOOptimizerImpl implements ImageOptimizer {
 
         BufferedImage scaledImage = new BufferedImage(imageType.getWidth(), imageType.getHeight(), originalImage.getType());
         Graphics2D g = scaledImage.createGraphics();
+
+        //TODO: use the fillColor to draw a rect first
+
         g.drawImage(originalImage,x,y, newWidth, newHeight, null);
         g.dispose();
 
@@ -51,13 +57,21 @@ public class ImageIOOptimizerImpl implements ImageOptimizer {
     }
 
 
+    /**
+     * Returns a new BufferedImage that takes the imageType sizes and crops the original image
+     * IMPORTANT: currently the crop function crops on the center of the original image
+     */
     private BufferedImage crop(BufferedImage image, ImageType imageType) {
 
+        //TODO: replace this center cropping with an algorithm that tries to find the highest sharpest pixel density
         int newX = (image.getWidth() / 2) - (imageType.getWidth() / 2);
         int newY = (image.getHeight() / 2) - (imageType.getHeight() / 2);
         return image.getSubimage(newX, newY, imageType.getWidth(), imageType.getHeight());
     }
 
+    /**
+     * Returns a new BufferedImage that takes the imageType sizes and fits the original image inside it
+     */
     private BufferedImage skew(BufferedImage image, ImageType imageType) {
         BufferedImage skewedImage = new BufferedImage(imageType.getWidth(), imageType.getHeight(), image.getType());
         Graphics2D g = skewedImage.createGraphics();
