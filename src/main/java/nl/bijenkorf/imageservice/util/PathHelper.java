@@ -12,7 +12,7 @@ public class PathHelper {
         //Remove old file typing
         filename = filename.substring(0, filename.lastIndexOf("."));
 
-        String suffix = "." + imageType.getTypeReturned().toString().toLowerCase();
+        String suffix = "." + imageType.getTypeReturned().toLowerCase();
 
         StringJoiner stringJoiner = new StringJoiner("/", "", suffix);
         stringJoiner.add(imageType.getPredefinedType().toString());
