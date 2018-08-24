@@ -12,12 +12,13 @@ import java.io.IOException;
 
 public class LocalStorageImpl implements Storage{
 
+    //TODO: Logger abstraction
     private Logger log = LoggerFactory.getLogger(LocalStorageImpl.class);
     private final String storageFolder = "storage";
 
     public LocalStorageImpl() {
         File storageDir = new File(storageFolder);
-        if (!storageDir.mkdir()) {
+        if (!storageDir.exists() && !storageDir.mkdir()) {
             log.error("Couldn't create local storage folder");
         }
     }
