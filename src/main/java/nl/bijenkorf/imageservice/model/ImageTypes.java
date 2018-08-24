@@ -2,5 +2,9 @@ package nl.bijenkorf.imageservice.model;
 
 public enum ImageTypes {
     JPG,
-    PNG
+    PNG;
+
+    public String toLowerCase() {
+        return super.toString().toLowerCase();
+    }
 }
