@@ -1,0 +1,27 @@
+logging:
+  level:
+    nl.bijenkorf.imageservice: TRACE
+  pattern:
+    console : "%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
+
+spring:
+  profiles:
+    active: "dev"
+
+server:
+  default-source: "http://www.debijenkorf.nl/INTERSHOP/static/WFS/dbk-shop-Site/-/dbk-shop/nl_NL/product-images/"
+  error:
+    whitelabel:
+      enabled: false
+
+---
+spring:
+  profiles: dev
+
+---
+spring:
+  profiles: test
+
+---
+spring:
+  profiles: live
