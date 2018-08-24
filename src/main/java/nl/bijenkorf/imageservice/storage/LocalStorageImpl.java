@@ -34,7 +34,9 @@ public class LocalStorageImpl implements Storage{
     public void storeImage(ImageType imageType, String originalName, BufferedImage buffer) throws IOException{
         String fileType = imageType.getTypeReturned().toString().toLowerCase();
 
-        ImageIO.write(buffer, fileType, new File(storageFolder + "/" + PathHelper.createRelativePath(imageType, originalName)));
+        File newFile = new File(storageFolder + "/" + PathHelper.createRelativePath(imageType, originalName));
+        newFile.mkdirs();
+        ImageIO.write(buffer, fileType, newFile);
     }
 
     @Override
